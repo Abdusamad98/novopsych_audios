@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:novopsych_audios/screens/assessment/assessment_screen.dart';
 import 'package:novopsych_audios/screens/free_demo/free_demo_screen.dart';
@@ -26,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
+        systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: AppColors.transparent),
         elevation: 0,
         backgroundColor: AppColors.white,
       ),
@@ -160,19 +162,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             SizedBox(height: 18.getH()),
-            SizedBox(
-              height: 111.getH(),
-              child: HomeButton(
-                text: "More Info",
-                isSelected: selectedIndex == 5,
-                iconPath: AppImages.moreInfo,
-                onTap: () {
-                  setState(() {
-                    selectedIndex = 5;
-                  });
-                },
-              ),
-            )
+            HomeButton(
+              text: "More Info",
+              isSelected: selectedIndex == 5,
+              iconPath: AppImages.moreInfo,
+              onTap: () {
+                setState(() {
+                  selectedIndex = 5;
+                });
+              },
+            ),
+            SizedBox(height: 30.getH()),
           ],
         ),
       ),
